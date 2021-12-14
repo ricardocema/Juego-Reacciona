@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+	
+	
+	//En esta clase se encuentra lo necesario para el juego: Cuadros de texto:
+	public class GeneralAbiertos extends JFrame implements ActionListener{
+		
+		protected JTextField Respuesta;
+		protected JButton BotonComprobar;
+		protected int alto, ancho;
+		static String Respuesta01="Fluor";
+		
+		
+		public GeneralAbiertos(){ 
+			/*A continuación se crea una ventana vacía*/
+			setLayout(null);
+			ancho=1000;
+			alto=700;
+			setBounds(0,0,ancho,alto);
+			setResizable(false);
+			setVisible(true);
+			
+			BotonComprobar= new JButton("Comprobar");
+			BotonComprobar.setBounds(35,500,400,100);
+			BotonComprobar.addActionListener(this);
+			this.add(BotonComprobar);
+						
+			
+			//JTextField
+			JTextField Respuesta = new JTextField();
+			Respuesta.setBounds(435, 500, 400, 100);
+			Respuesta.addActionListener(this);		
+			this.add(Respuesta);
+	}
+		//A continuación se dibujan las preguntas:
+		
+		public void PreguntaAbierta01() {
+			JLabel PreguntaA01= new JLabel("¿Cuál es la fórmula química del agua?"); // Esta es la primer pregunta del juego
+			PreguntaA01.setBounds(45, 45, 650, 40);
+			this.add(PreguntaA01);
+			
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+		}
+	}
+	

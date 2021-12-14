@@ -1,0 +1,31 @@
+//Aquí se importan las librerías necesarias para la ejecución del juego, en este caso, se usarán las librerías necesarias para usar SWING.
+import java.awt.BorderLayout;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+
+//PREGUNTA 1
+public class NivelesAbiertos extends GeneralAbiertos implements ActionListener{
+	public NivelesAbiertos() {
+		super();
+		PreguntaAbierta01();
+	}
+	public void actionPerfomed(ActionEvent e) {
+		if(e.getSource().equals(BotonComprobar)) {
+			JOptionPane.showMessageDialog(null, "Prueba");
+			this.setVisible(false);
+		}
+	}
+}

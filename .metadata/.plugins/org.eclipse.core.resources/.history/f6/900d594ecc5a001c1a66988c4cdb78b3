@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+	
+	
+	//En esta clase se encuentra lo necesario para el juego: Cuadros de texto:
+	public class GeneralAbiertos extends JFrame implements ActionListener{
+		
+		JTextField Respuesta;
+		protected JButton BotonComprobar, BotonConseguir;
+		protected int alto, ancho;
+		static String Respuesta01="Oxígeno";
+		static String Respuesta021="Helio", Respuesta022="Neón", Respuesta023="Argón", Respuesta024="Xenón", Respuesta025="Kriptón", Respuesta026="Radón";
+		static String Respuesta031="-273.15", Respuesta032="-273", Respuesta033="-273.15K", Respuesta034="-273K", Respuesta035="-273.15 K", Respuesta036="-273 K";
+		static int intentos=3;
+		
+		
+		public GeneralAbiertos(){ 
+			/*A continuación se crea una ventana vacía*/
+			setLayout(null);
+			ancho=1000;
+			alto=700;
+			setBounds(0,0,ancho,alto);
+			setResizable(false);
+			setVisible(true);
+			
+			BotonComprobar= new JButton("Comprobar");
+			BotonComprobar.setBounds(35,500,100,40);
+			BotonComprobar.addActionListener(this);
+			this.add(BotonComprobar);
+			
+			BotonConseguir = new JButton("Conseguir Puntos");
+			BotonConseguir.setBounds(435, 500, 400, 100);
+			BotonComprobar.addActionListener(this);
+			this.add(BotonComprobar);
+						
+			
+			//JTextField
+			Respuesta = new JTextField();
+			Respuesta.setBounds(135, 500, 100, 60);
+			Respuesta.addActionListener(this);		
+			this.add(Respuesta);
+	}
+		//A continuación se dibujan las preguntas:
+		
+		public void PreguntaAbierta01() {
+			JLabel PreguntaA01= new JLabel("¿El aire está compuesto principalmete de dos elementos, uno de ellos es el nitrógeno y el otro es: ?"); // Esta es la primer pregunta del juego
+			PreguntaA01.setBounds(45, 45, 650, 40);
+			this.add(PreguntaA01);
+			
+		}
+		
+		public void PreguntaAbierta02() {
+			JLabel PreguntaA02 = new JLabel("Menciona un gas noble");
+			PreguntaA02.setBounds(45, 45, 650, 40);
+			this.add(PreguntaA02);
+		}
+		
+		public void PreguntaAbierta03() {
+			JLabel PreguntaA03 = new JLabel("¿A que temperatura equivalen 0 grados celcius en la escala kevin?");
+			PreguntaA03.setBounds(45, 45, 650, 40);
+			this.add(PreguntaA03);
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+		}
+	}
+	

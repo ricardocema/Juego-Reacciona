@@ -1,0 +1,350 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+	
+	
+	//En esta clase se encuentra lo necesario para el juego: preguntas, respuestas y botones.
+	public class General extends JFrame implements ActionListener{
+		
+		protected JButton BotonA, BotonB, BotonC, BotonAvanzar;
+		static int correctas, incorrectas, puntaje;
+		protected int alto, ancho;
+		static JLabel puntos, imagen1, imagen2, pregunta;
+		
+		
+		public General(){ 
+			/*A continuación se crea una ventana vacía*/
+			setLayout(null);
+			ancho=1000;
+			alto=700;
+			setBounds(0,0,ancho,alto);
+			setTitle("REACCIONA");
+			getContentPane().setBackground(new Color(204,51,153));
+			setResizable(false);
+			setVisible(true);
+			
+			
+			/* En este método se crean los botones de respuesta:*/ 
+			/*Botón A*/
+			BotonA=new JButton("A");
+			BotonA.setBounds(45, 500, 200, 100);
+			BotonA.addActionListener(this);
+			BotonA.setFont(new Font("Arial", 1, 12));
+			this.add(BotonA);
+			
+			//Boton B:
+			BotonB=new JButton("B");
+			BotonB.setBounds(355, 500, 200, 100);
+			BotonB.addActionListener(this);
+			this.add(BotonB);
+			
+			//Boton C:
+			BotonC=new JButton("C");
+			BotonC.setBounds(655, 500, 200, 100);
+			BotonC.addActionListener(this);
+			add(BotonC);
+			
+			//BotonAvanzar:
+			BotonAvanzar = new JButton("Avanzar");
+			BotonAvanzar.setBounds(655,500,200,100);
+			BotonAvanzar.addActionListener(this);
+			this.add(BotonAvanzar);
+			BotonAvanzar.setVisible(false);
+			
+			
+			//Cuadro de puntaje:
+			puntos = new JLabel("Puntos: " + puntaje + " ,   Puntos de intento: " + GeneralAbiertos.intentos);
+			puntos.setBounds(750, 0, 200, 100);
+			this.add(puntos);
+			
+			
+			
+		
+	}
+		// A continuación se dibujan las instrucciones
+		//Primera instrucción
+		public void instruccion1() {
+		JLabel imagen01 = new JLabel ("");
+		imagen01.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\prof-membrana-1.jpg"));
+		imagen01.setBounds(0, 0, 1000, 700);
+		this.add(imagen01);
+		BotonA.setVisible(false);
+		BotonB.setVisible(false);
+		BotonC.setVisible(false);
+		BotonAvanzar.setVisible(true);
+		}
+		
+		//Segunda instrucción
+		public void instruccion2() {
+			JLabel imagen02 = new JLabel ("");
+			imagen02.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\prof-membrana-2.jpg"));
+			imagen02.setBounds(0, 0, 1000, 700);
+			this.add(imagen02);
+			BotonA.setVisible(false);
+			BotonB.setVisible(false);
+			BotonC.setVisible(false);
+			BotonAvanzar.setVisible(true);
+			}
+		
+		//Tercera instruccion
+		public void instruccion3() {
+			JLabel imagen03 = new JLabel ("");
+			imagen03.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\prof-membrana-3.jpg"));
+			imagen03.setBounds(0, 0, 1000, 700);
+			this.add(imagen03);
+			BotonA.setVisible(false);
+			BotonB.setVisible(false);
+			BotonC.setVisible(false);
+			BotonAvanzar.setVisible(true);
+			}
+		
+		//Cuarta instrucción
+		public void instruccion4() {
+			JLabel imagen04 = new JLabel ("");
+			imagen04.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\prof-membrana-4.jpg"));
+			imagen04.setBounds(0, 0, 1000, 700);
+			this.add(imagen04);
+			BotonA.setVisible(false);
+			BotonB.setVisible(false);
+			BotonC.setVisible(false);
+			BotonAvanzar.setVisible(true);
+			}
+		
+		
+		
+		//A continuación se dibujan las preguntas:
+		public void PreguntaSeleccion1(){
+			JLabel Pregunta1= new JLabel("¿Cuál es el símbolo químico del hidrógeno?"); // Esta es la primer pregunta del juego
+			Pregunta1.setBounds(45, 45, 650, 40);
+			this.add(Pregunta1);
+	
+			
+			JLabel a= new JLabel("Hi");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("H");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("H2");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-1.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion2() {
+			JLabel Pregunta2 = new JLabel("Qué elemento tiene como símbolo la letra C");
+			Pregunta2.setBounds(45, 45, 650, 40);
+			this.add(Pregunta2);
+			
+			JLabel a= new JLabel("Carbono");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Cloro");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Cesio");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-2.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+			
+		}
+		
+		public void PreguntaSeleccion3() {
+			JLabel Pregunta3 = new JLabel("Cuál es el el símbolo químico del oxígeno");
+			Pregunta3.setBounds(45, 45, 650, 40);
+			this.add(Pregunta3);
+			
+			JLabel a= new JLabel("O");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Og");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Ox");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-3.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+			
+		}
+		
+		public void PreguntaSeleccion4() {
+			JLabel Pregunta3 = new JLabel("¿Cuál es la fórmual química del agua?");
+			Pregunta3.setBounds(45, 45, 650, 40);
+			this.add(Pregunta3);
+			
+			JLabel a= new JLabel("HO");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("H2O2");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("H2O");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-5.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion5() {
+			JLabel Pregunta4 = new JLabel("¿Cuál es la fórmual química de la sal de cocina?");
+			Pregunta4.setBounds(45, 45, 650, 40);
+			this.add(Pregunta4);
+			
+			JLabel a= new JLabel("Cloro de sodio");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Cloruro de sodio");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Clorudo de sodio");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-6.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion6() {
+			JLabel Pregunta5 = new JLabel("¿Cuál de los siguientes no es un metal?");
+			Pregunta5.setBounds(45, 45, 650, 40);
+			this.add(Pregunta5);
+			
+			JLabel a= new JLabel("Platino");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Bromo");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Oro");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-7.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion7() {
+			JLabel Pregunta6 = new JLabel("¿A que temperatura ebulle el agua?");
+			Pregunta6.setBounds(45, 45, 650, 40);
+			this.add(Pregunta6);
+			
+			JLabel a= new JLabel("100 grados fahrenheit");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("100 grados kelvin");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("100 grados celcius ");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-9.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion8() {
+			JLabel Pregunta7 = new JLabel("¿Al mezclar agua con aceite se genera una mezcla: ?");
+			Pregunta7.setBounds(45, 45, 650, 40);
+			this.add(Pregunta7);
+			
+			JLabel a= new JLabel("Homogenea");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Heterogénea");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Química");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-10.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+		
+		public void PreguntaSeleccion9() {
+			JLabel Pregunta8 = new JLabel("¿El agua es: ?");
+			Pregunta8.setBounds(45, 45, 650, 40);
+			this.add(Pregunta8);
+			
+			JLabel a= new JLabel("Un compuesto");
+			a.setBounds(55, 380, 650, 20);
+			this.add(a);
+			
+			JLabel b = new JLabel("Un elemento");
+			b.setBounds(55, 410, 650, 20);
+			this.add(b);
+			
+			JLabel c = new JLabel("Una mezcla");
+			c.setBounds(55, 440, 650, 20);
+			this.add(c);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-11.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+		}
+
+		public void PreguntaSeleccion10() {
+			JLabel Pregunta8 = new JLabel("Felicidades, has completado todas las preguntas");
+			Pregunta8.setBounds(45, 45, 650, 40);
+			this.add(Pregunta8);
+			
+			BotonA.setVisible(false);
+			BotonB.setVisible(false);
+			BotonC.setVisible(false);
+			
+			JLabel pregunta = new JLabel("");
+			pregunta.setIcon(new ImageIcon("C:\\Users\\Eco\\Documents\\ingenier\u00EDa de software\\tercer semestre\\paradigmas de programaion\\juego poo\\im\u00E1genes\\pregunta-12.jpg"));
+			pregunta.setBounds(500, 0, 900, 400);
+			this.add(pregunta);
+			
+		}
+		//FIN DEL JUEGO
+			
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+	}

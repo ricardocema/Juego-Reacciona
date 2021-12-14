@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\Eco\Documents\ingeniería de software\tercer semestre\paradigmas de programaion\juego poo\.metadata\.plugins\org.eclipse.jdt.core
+1031926027.index
+151480184.index

@@ -1,0 +1,106 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+	
+	
+	//En esta clase se encuentra lo necesario para el juego: preguntas, respuestas y botones.
+	public class Retos extends JFrame implements ActionListener{
+		
+		protected JButton BotonVerificar;
+		protected int alto, ancho;
+		JTextField Letra1, Letra2, Letra3, Letra4, Letra5;
+		
+		
+		public Retos(){ 
+			/*A continuación se crea una ventana vacía*/
+			setLayout(null);
+			ancho=1000;
+			alto=700;
+			setBounds(0,0,ancho,alto);
+			setTitle("REACCIONA");
+			getContentPane().setBackground(new Color(204,51,153));
+			setResizable(false);
+			setVisible(true);
+			
+			//A continuación se crean el botón de verificar
+			
+			BotonVerificar= new JButton("Verificar");
+			BotonVerificar.setBounds(35,500,100,40);
+			BotonVerificar.addActionListener(this);
+			this.add(BotonVerificar);
+			
+			
+			JLabel PreguntaR1 = new JLabel("Completa la palabra: ");
+			PreguntaR1.setBounds(45, 45, 650, 40);
+			PreguntaR1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(PreguntaR1);
+			
+			JLabel PistaR1 = new JLabel("Pista: Es el primer elemento de la tabla periódica: ");
+			PistaR1.setBounds(45, 90, 650, 40);
+			PistaR1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(PistaR1);
+			
+		}
+		
+		public void PreguntaReto01() {
+			JLabel LetraC1 = new JLabel("H");
+			LetraC1.setBounds(45, 300, 40, 40);
+			LetraC1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(LetraC1);
+			
+			Letra1 = new JTextField();
+			Letra1.setBounds(70, 300, 40, 40);
+			Letra1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra1);
+			
+			JLabel LetraC2 = new JLabel("D");
+			LetraC2.setBounds(120, 300, 40, 40);
+			LetraC2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(LetraC2);
+			
+			Letra2 = new JTextField();
+			Letra2.setBounds(150, 300, 40, 40);
+			Letra2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra2);
+			
+			Letra3 = new JTextField();
+			Letra3.setBounds(200, 300, 40, 40);
+			Letra3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra3);
+			
+			JLabel LetraC3 = new JLabel("G");
+			LetraC3.setBounds(240, 300, 40, 40);
+			LetraC3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(LetraC3);
+
+			Letra4 = new JTextField();
+			Letra4.setBounds(260, 300, 40, 40);
+			Letra4.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra4);
+			
+			Letra5 = new JTextField();
+			Letra5.setBounds(310, 300, 40, 40);
+			Letra5.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra5);
+			
+			JLabel LetraC4 = new JLabel("O");
+			LetraC4.setBounds(350, 300, 40, 40);
+			LetraC4.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(LetraC4);
+			
+			
+
+			
+			
+			
+		}
+		
+
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}

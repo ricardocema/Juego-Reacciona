@@ -1,0 +1,746 @@
+//Aquí se importan las librerías necesarias para la ejecución del juego, en este caso, se usarán las librerías necesarias para usar SWING.
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.JTextField;
+
+
+//Aquí se implementan los métodos usados en las clases General, GeneralAbiertos y Retos.
+//Solo se comentará la primera pregunta de selección, la primera instrucción de la clase tutorial, la primera pregunta abierta y la primera pregunta de Reto, ya que las demás siguen la misma lógica
+//PREGUNTA 1
+//Aquí se crea la clase Nivel y se hace referencia a que se estará usando la clase General, ya que es la que contiene los métodos que se usarán
+public class Nivel extends General implements ActionListener{
+	public Nivel() {
+		super();
+		//Se llama al método PreguntaSeleccion1 creado en la clase General
+		PreguntaSeleccion1();
+	}
+	//Se definen las acciones que se realizarán al dar click sobre los botones
+	public void actionPerformed(ActionEvent e) {
+		//Acciones sobre el boton B:
+		if (e.getSource().equals(BotonB)) {
+			//Como la opción correcta es la opción B, el puntaje aumentará en 5
+			puntaje=Maspuntos(puntaje);
+			//Como la opción correcta es la B, la variable correctas aumentará en 1
+			correctas=correcto(correctas);
+			//Al hacer click sobre el botón tambien se mostrará un mensaje avisando que la respues fue correcta, además de mostrar el puntaje y las preguntas correctas hasta el momento
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			//La ventana actual se cerrará para que no se acumulen las ventanas
+			this.setVisible(false);
+			//Se crea una nueva clase llamada instrucción1
+			instruccion01 instruccion01 = new instruccion01();
+		}
+		//Por el contrario, si se hace click sobre la opción A, la cual es una opción incorrecta:
+		if(e.getSource().equals(BotonA)) {
+			puntaje=Menospuntos(puntaje);
+						
+			//Si el puntaje es menor que 3, el puntaje será automáticamente 0 para evitar puntajes negativos
+			
+			incorrectas++;
+			//Se mostrará un cuadro de dialogo avisando que la respuesta fue incorrecta, además de mostrar el puntaje y las respuestas correctas hasta el momento
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			//Se cerrará la ventana para evitar que se acumulen
+			this.setVisible(false);
+			//Se crea una nueva clase llamada instrucción1
+			instruccion01 instruccion01 = new instruccion01();
+		}
+		//Si la opción elegida es la opción C
+		if(e.getSource().equals(BotonC)) {
+			//Si el puntaje es menor que 3, el puntaje será automaticamente igual a 0 para evitar puntajes negativos
+			Menospuntos(puntaje);
+					
+			}
+			incorrectas++;
+			//Se mostrará un mensaje avisando que la respuesta fue incorrecta, además de mostrar el puntaje y las respuestas correctas hasta el momento
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			//Se cierra la ventana para evitar que estas se acumulen
+			this.setVisible(false);
+			//Se crea la nueva clase instruccion1
+			instruccion01 instruccion01 = new instruccion01();
+			
+		}
+		
+	}
+	
+
+//A continuación se crea la primera instrucción
+
+//INSTRUCCION 1
+//Se crea la nueva clase instruccion1
+class instruccion01 extends General implements ActionListener{
+	public instruccion01() {
+		super();
+		instruccion1();
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonAvanzar)) {
+			this.setVisible(false);
+			instruccion02 instruccion02 = new instruccion02();
+			
+		}
+	}
+}
+
+//INSTRUCCION 2
+class instruccion02 extends General implements ActionListener{
+	public instruccion02() {
+		super();
+		instruccion2();
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonAvanzar)) {
+			this.setVisible(false);
+			instruccion03 instruccion03 = new instruccion03();
+			
+		}
+	}
+}
+
+//INSTRUCCION 3
+class instruccion03 extends General implements ActionListener{
+	public instruccion03() {
+		super();
+		instruccion3();
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonAvanzar)) {
+			this.setVisible(false);
+			instruccion04 instruccion04 = new instruccion04();
+			
+		}
+	}
+}
+
+
+//INSTRUCCION 4
+class instruccion04 extends General implements ActionListener{
+	public instruccion04() {
+		super();
+		instruccion4();
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonAvanzar)) {
+			this.setVisible(false);
+			Nivel01 Nivel01 = new Nivel01();
+			
+		}
+	}
+}
+
+
+
+//PREGUNTA 2
+class Nivel01 extends General implements ActionListener{
+	public Nivel01() {
+		super();
+		PreguntaSeleccion2();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonA)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel02 Nivel02 = new Nivel02();
+			
+		}
+		if(e.getSource().equals(BotonB)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel02 Nivel02 = new Nivel02();
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel02 Nivel02 = new Nivel02();
+			
+		}
+		
+	}
+	
+}
+
+//PREGUNTA 03
+
+class Nivel02 extends General implements ActionListener{
+	public Nivel02() {
+		super();
+		PreguntaSeleccion3();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonA)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio01 Desafio01 = new Desafio01();
+			
+		}
+		if(e.getSource().equals(BotonB)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio01 Desafio01 = new Desafio01();
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio01 Desafio01 = new Desafio01();
+			
+		}
+		
+	}
+	
+}
+
+
+
+//PREGUNTA ABIERTA 01
+
+class Desafio01 extends GeneralAbiertos implements ActionListener{
+	public Desafio01() {
+		super();
+		PreguntaAbierta01();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonComprobar)) {
+			if(Respuesta.getText().contentEquals(Respuesta01.toLowerCase())) {
+				intentos=intentos+2;
+				JOptionPane.showMessageDialog(null, "Respuesta correcta. Aprobaste el primer desafío y te quedan " + intentos + " puntos de intentos restantes y " + General.puntaje + " puntos");
+				Nivel03 Nivel03 = new Nivel03();
+				this.setVisible(false);
+			}
+			else {
+				intentos=intentos-1;
+				JOptionPane.showMessageDialog(null, "Respuesta incorrecta, te quedan " + intentos + "  Puntos de intentos restantes" );
+				if(intentos==0) {
+					intentos=intentos+1;
+					JOptionPane.showMessageDialog(null, "Respuesta incorrecta. No completaste el primer desafío y no tienes más puntos de intentos para avanzar. Intercambia puntos por de intento para seguir avanzando");
+				}
+			}
+		}
+
+		if (e.getSource().equals(BotonConseguir)) {
+			if(General.puntaje<2) {
+				JOptionPane.showMessageDialog(null, "No tienes puntos para intercambiar. El juego se cerrará" + General.puntaje);
+				this.setVisible(false);
+			}
+			else {
+				intentos=General.puntaje/2;
+				General.puntaje=General.puntaje/2;
+				JOptionPane.showMessageDialog(null, "Tus nuevos puntos de intento son: " + intentos + "y tu nuevo puntaje es de :" + General.puntaje);
+				}
+		}
+		if (e.getSource().equals(BotonReto)) {
+			Reto1 Reto1 = new Reto1();
+		}
+	}
+}
+
+//RETO 1
+class Reto1 extends Retos implements ActionListener{
+	public Reto1() {
+		super();
+		PreguntaReto01();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonVerificar)) {
+			if(Letra1.getText().contentEquals("I") && Letra2.getText().contentEquals("R") && Letra3.getText().contentEquals("O") && Letra4.getText().contentEquals("E") && Letra5.getText().contentEquals("N")) {
+				JOptionPane.showMessageDialog(null, "Correcto, obtuviste un punto de intentos");
+				this.setVisible(false);
+				GeneralAbiertos.intentos++;
+				GeneralAbiertos.BotonReto.setVisible(false);
+		}
+			else {
+				JOptionPane.showMessageDialog(null, "Incorrecto, no obtuviste puntos de intento");
+				this.setVisible(false);
+				GeneralAbiertos.BotonReto.setVisible(false);
+			}
+	}
+}
+	
+}
+
+
+//Nivel 04
+class Nivel03 extends General implements ActionListener{
+	public Nivel03() {
+		super();
+		PreguntaSeleccion4();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonC)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel04 Nivel04 = new Nivel04();
+			
+		}
+		if(e.getSource().equals(BotonA)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel04 Nivel04 = new Nivel04();
+
+		}
+		if(e.getSource().equals(BotonB)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel04 Nivel04 = new Nivel04();
+		}
+		
+	}
+	
+}
+
+//Nivel 05
+class Nivel04 extends General implements ActionListener{
+	public Nivel04() {
+		super();
+		PreguntaSeleccion5();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonB)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel05 Nivel05 = new Nivel05();
+			
+		}
+		if(e.getSource().equals(BotonA)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel05 Nivel05 = new Nivel05();
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel05 Nivel05 = new Nivel05();
+		}
+		
+	}
+	
+}
+
+//Nivel 06
+class Nivel05 extends General implements ActionListener{
+	public Nivel05() {
+		super();
+		PreguntaSeleccion6();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonB)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio02 Desafio02= new Desafio02();
+			
+		}
+		if(e.getSource().equals(BotonA)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio02 Desafio02= new Desafio02();
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio02 Desafio02= new Desafio02();
+		}
+		
+	}
+	
+}
+
+//PREGUNTA ABIERTA 02
+
+class Desafio02 extends GeneralAbiertos implements ActionListener{
+	public Desafio02() {
+		super();
+		PreguntaAbierta02();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonComprobar)) {
+			if(Respuesta.getText().contentEquals(Respuesta021.toLowerCase()) || Respuesta.getText().contentEquals(Respuesta022.toLowerCase()) || Respuesta.getText().contentEquals(Respuesta023.toLowerCase()) || Respuesta.getText().contentEquals(Respuesta024.toLowerCase()) || Respuesta.getText().contentEquals(Respuesta025.toLowerCase()) || Respuesta.getText().contentEquals(Respuesta026.toLowerCase())) {
+				intentos=intentos+2;
+				JOptionPane.showMessageDialog(null, "Respuesta correcta. Aprobaste el primer desafío y te quedan " + intentos + " puntos de intentos restantes y " + General.puntaje + " puntos");
+				Nivel06 Nivel06 = new Nivel06();
+				this.setVisible(false);
+			}
+			else {
+				intentos=intentos-1;
+				JOptionPane.showMessageDialog(null, "Respuesta incorrecta, te quedan " + intentos + "  Puntos de intentos restantes" );
+				if(intentos==0) {
+					intentos=intentos+1;
+					JOptionPane.showMessageDialog(null, "Respuesta incorrecta. No completaste el primer desafío y no tienes más puntos de intentos para avanzar. Intercambia puntos por de intento para seguir avanzando");
+				}
+			}
+		}
+		if (e.getSource().equals(BotonConseguir)) {
+			if(General.puntaje<2) {
+				JOptionPane.showMessageDialog(null, "No tienes puntos para intercambiar. El juego se cerrará");
+				this.setVisible(false);
+			}
+			else {
+				intentos=General.puntaje/2;
+				General.puntaje=General.puntaje/2;
+				JOptionPane.showMessageDialog(null, "Tus nuevos puntos de intento son: " + intentos + "y tu nuevo puntaje es de :" + General.puntaje);
+				}
+		}
+		if (e.getSource().equals(BotonReto)) {
+			Reto2 Reto2 = new Reto2();
+		}
+	}
+}
+
+//RETO2
+class Reto2 extends Retos implements ActionListener{
+	public Reto2() {
+		super();
+		PreguntaReto02();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonVerificar)) {
+			if(Letra1.getText().contentEquals("O") && Letra2.getText().contentEquals("E") && Letra3.getText().contentEquals("C") && Letra4.getText().contentEquals("L")) {
+				JOptionPane.showMessageDialog(null, "Correcto, obtuviste un punto de intentos");
+				this.setVisible(false);
+				GeneralAbiertos.intentos++;
+				GeneralAbiertos.BotonReto.setVisible(false);
+		}
+			else {
+				JOptionPane.showMessageDialog(null, "Incorrecto, no obtuviste puntos de intento");
+				this.setVisible(false);
+				GeneralAbiertos.BotonReto.setVisible(false);
+			}
+		}
+	}
+}
+
+
+//PREGUNTA 7
+class Nivel06 extends General implements ActionListener{
+	public Nivel06() {
+		super();
+		PreguntaSeleccion7();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonC)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel07 Nivel07 = new Nivel07();
+			
+		}
+		if(e.getSource().equals(BotonA)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel07 Nivel07 = new Nivel07();
+
+		}
+		if(e.getSource().equals(BotonB)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel07 Nivel07 = new Nivel07();
+		}
+		
+	}
+	
+}
+//PREGUNTA 8
+class Nivel07 extends General implements ActionListener{
+	public Nivel07() {
+		super();
+		PreguntaSeleccion8();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonB)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel08 Nivel08 = new Nivel08();
+			
+		}
+		if(e.getSource().equals(BotonA)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel08 Nivel08 = new Nivel08();
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Nivel08 Nivel08 = new Nivel08();
+		}
+		
+	}
+	
+}
+
+//PREGUNTA 9
+class Nivel08 extends General implements ActionListener{
+	public Nivel08() {
+		super();
+		PreguntaSeleccion9();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonA)) {
+			puntaje=Maspuntos(puntaje);
+			correctas=correcto(correctas);
+			JOptionPane.showMessageDialog(null, "Correcto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio03 Desafio03 = new Desafio03();
+			
+			
+		}
+		if(e.getSource().equals(BotonB)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio03 Desafio03 = new Desafio03();		
+
+		}
+		if(e.getSource().equals(BotonC)) {
+			if(puntaje<3) {
+				puntaje=0;
+			}
+				else {
+					puntaje=puntaje-3;
+					
+			}
+			incorrectas++;
+			JOptionPane.showMessageDialog(null, "Incorrecto, tu puntaje es de: " + puntaje + " y llevas " + correctas + " preguntas correctas");
+			this.setVisible(false);
+			Desafio03 Desafio03 = new Desafio03();
+			
+		}
+		
+	}
+	
+}
+
+//PREGUNTA ABIERTA 03
+
+class Desafio03 extends GeneralAbiertos implements ActionListener{
+	public Desafio03() {
+		super();
+		PreguntaAbierta03();
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonComprobar)) {
+			if(Respuesta.getText().contentEquals(Respuesta031) || Respuesta.getText().contentEquals(Respuesta032) || Respuesta.getText().contentEquals(Respuesta033) || Respuesta.getText().contentEquals(Respuesta034) || Respuesta.getText().contentEquals(Respuesta035) || Respuesta.getText().contentEquals(Respuesta036)) {
+				intentos=intentos+2;
+				JOptionPane.showMessageDialog(null, "Respuesta correcta. Aprobaste el primer desafío y te quedan " + intentos + " puntos de intentos restantes y " + General.puntaje + " puntos");
+				Nivel06 Nivel06 = new Nivel06();
+				this.setVisible(false);
+				Nivel09 Nivel09 = new Nivel09();
+			}
+			else {
+				intentos=intentos-1;
+				JOptionPane.showMessageDialog(null, "Respuesta incorrecta, te quedan " + intentos + "  Puntos de intentos restantes" );
+				if(intentos==0) {
+					intentos=intentos+1;
+					JOptionPane.showMessageDialog(null, "Respuesta incorrecta. No completaste el primer desafío y no tienes más puntos de intentos para avanzar. Intercambia puntos por de intento para seguir avanzando");
+				}
+			}
+		}
+		if (e.getSource().equals(BotonConseguir)) {
+			if(General.puntaje<2) {
+				JOptionPane.showMessageDialog(null, "No tienes puntos para intercambiar. El juego se cerrará");
+				this.setVisible(false);
+			}
+			else {
+				intentos=General.puntaje/2;
+				General.puntaje=General.puntaje/2;
+				JOptionPane.showMessageDialog(null, "Tus nuevos puntos de intento son: " + intentos + "y tu nuevo puntaje es de :" + General.puntaje);
+				}
+		}
+		if(e.getSource().equals(BotonReto)) {
+			Reto3 Reto3 = new Reto3();
+		}
+	}
+}
+
+//RETO 3
+
+class Reto3 extends Retos implements ActionListener{
+	public Reto3() {
+		super();
+		PreguntaReto03();
+		
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource().equals(BotonVerificar)) {
+			if(Letra1.getText().contentEquals("L") && Letra2.getText().contentEquals("C") && Letra3.getText().contentEquals("T") && Letra4.getText().contentEquals("O")) {
+				JOptionPane.showMessageDialog(null, "Correcto, obtuviste un punto de intentos");
+				this.setVisible(false);
+				GeneralAbiertos.intentos++;
+				GeneralAbiertos.BotonReto.setVisible(false);
+		}
+			else {
+				JOptionPane.showMessageDialog(null, "Incorrecto, no obtuviste puntos de intento");
+				this.setVisible(false);
+				GeneralAbiertos.BotonReto.setVisible(false);
+			}
+		}
+	}
+}
+
+
+
+// FINAL JUEGO
+class Nivel09 extends General implements ActionListener{
+	public Nivel09() {
+		super();
+		PreguntaSeleccion10();
+	}
+}
+
+

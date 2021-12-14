@@ -1,0 +1,65 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+	
+	
+	//En esta clase se encuentra lo necesario para el juego: preguntas, respuestas y botones.
+	public class Retos extends JFrame implements ActionListener{
+		
+		protected JButton BotonVerificar;
+		protected int alto, ancho;
+		
+		
+		public Retos(){ 
+			/*A continuación se crea una ventana vacía*/
+			setLayout(null);
+			ancho=1000;
+			alto=700;
+			setBounds(0,0,ancho,alto);
+			setTitle("REACCIONA");
+			getContentPane().setBackground(new Color(204,51,153));
+			setResizable(false);
+			setVisible(true);
+			
+			//A continuación se crean el botón de verificar
+			JLabel PreguntaR1 = new JLabel("Completa la palabra: ");
+			PreguntaR1.setBounds(45, 45, 650, 40);
+			PreguntaR1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(PreguntaR1);
+			
+			JLabel PistaR1 = new JLabel("Pista: Es el primer elemento de la tabla periódica: ");
+			PistaR1.setBounds(45, 90, 650, 40);
+			PistaR1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(PistaR1);
+		}
+		
+		public void PreguntaReto01() {
+			JLabel Letra1 = new JLabel("H");
+			Letra1.setBounds(45, 300, 40, 40);
+			Letra1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra1);
+			
+			JTextField Letra2 = new JTextField();
+			Letra2.setBounds(70, 300, 40, 40);
+			Letra2.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra2);
+			
+			JLabel Letra3 = new JLabel("D");
+			Letra3.setBounds(110, 300, 40, 40);
+			Letra3.setFont(new Font("Tahoma", Font.PLAIN, 24));
+			this.add(Letra3);
+			
+			
+			
+			
+		}
+		
+
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
